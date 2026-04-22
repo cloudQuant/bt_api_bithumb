@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 import time
-from typing import Any
 
 from bt_api_base.feeds.capability import Capability
+
 from bt_api_bithumb.feeds.live_bithumb.request_base import BithumbRequestData
 
 
