@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from typing import Any
@@ -6,8 +7,10 @@ from bt_api_base.error import ErrorCategory, ErrorTranslator, UnifiedError, Unif
 
 
 class BithumbErrorTranslator(ErrorTranslator):
+    """Class BithumbErrorTranslator"""
     @classmethod
     def translate(cls, raw_error: dict[str, Any], venue: str) -> UnifiedError | None:
+        """translate method"""
         message = str(raw_error.get("message", raw_error.get("msg", raw_error)))
         message_lower = message.lower()
 

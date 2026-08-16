@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from unittest.mock import MagicMock
@@ -6,6 +7,7 @@ from bt_api_bithumb.feeds.live_bithumb.request_base import BithumbRequestData
 
 
 def test_bithumb_disconnect_closes_http_client() -> None:
+    """test_bithumb_disconnect_closes_http_client function"""
     request_data = BithumbRequestData()
     request_data._http_client.close = MagicMock()
 
@@ -15,6 +17,7 @@ def test_bithumb_disconnect_closes_http_client() -> None:
 
 
 def test_bithumb_accepts_public_private_key_aliases() -> None:
+    """test_bithumb_accepts_public_private_key_aliases function"""
     request_data = BithumbRequestData(public_key="public-key", private_key="secret-key")
     auth_params = request_data._get_auth_params()
 

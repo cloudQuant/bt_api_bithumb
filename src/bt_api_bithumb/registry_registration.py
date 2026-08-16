@@ -1,3 +1,4 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from bt_api_base.registry import ExchangeRegistry
@@ -7,11 +8,13 @@ from bt_api_bithumb.feeds.live_bithumb.spot import BithumbRequestDataSpot
 
 
 def register_bithumb(registry: ExchangeRegistry | type[ExchangeRegistry]) -> None:
+    """register_bithumb function"""
     registry.register_feed("BITHUMB___SPOT", BithumbRequestDataSpot)
     registry.register_exchange_data("BITHUMB___SPOT", BithumbExchangeDataSpot)
 
 
 def register(registry: ExchangeRegistry | None = None) -> None:
+    """register function"""
     if registry is None:
         register_bithumb(ExchangeRegistry)
         return

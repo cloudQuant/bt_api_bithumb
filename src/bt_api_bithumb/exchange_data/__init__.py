@@ -1,10 +1,13 @@
+"""Module-level docstring."""
 from __future__ import annotations
 
 from bt_api_base.containers.exchanges.exchange_data import ExchangeData
 
 
 class BithumbExchangeData(ExchangeData):
+    """Class BithumbExchangeData"""
     def __init__(self) -> None:
+        """__init__ method"""
         super().__init__()
         self.exchange_name = "bithumb"
         self.rest_url = "https://global-openapi.bithumb.pro/openapi/v1"
@@ -31,13 +34,16 @@ class BithumbExchangeData(ExchangeData):
         self.wss_paths = {}
 
     def get_period(self, period: str) -> str:
+        """get_period method"""
         if period not in self.kline_periods:
             return period
         return self.kline_periods[period]
 
 
 class BithumbExchangeDataSpot(BithumbExchangeData):
+    """Class BithumbExchangeDataSpot"""
     def __init__(self) -> None:
+        """__init__ method"""
         super().__init__()
         self.asset_type = "SPOT"
         self.api_key: str | None = None

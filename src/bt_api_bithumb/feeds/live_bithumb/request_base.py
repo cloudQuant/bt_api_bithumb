@@ -1,3 +1,4 @@
+"""Module documentation"""
 from __future__ import annotations
 
 import hashlib
@@ -16,6 +17,7 @@ from bt_api_bithumb.exchange_data import BithumbExchangeDataSpot
 
 
 class BithumbRequestData(Feed):
+    """Class BithumbRequestData"""
     @classmethod
     def _capabilities(cls) -> set[Capability]:
         return {
@@ -30,6 +32,7 @@ class BithumbRequestData(Feed):
         }
 
     def __init__(self, data_queue=None, **kwargs) -> None:
+        """__init__ method"""
         super().__init__(data_queue, **kwargs)
         self.data_queue = data_queue
         self.exchange_name = kwargs.get("exchange_name", "BITHUMB___SPOT")
@@ -66,6 +69,7 @@ class BithumbRequestData(Feed):
         return params
 
     def request(self, path, params=None, body=None, extra_data=None, timeout=10):
+        """request method"""
         method = path.split()[0] if " " in path else "GET"
         request_path = "/" + path.split()[1] if " " in path else path
 
@@ -107,6 +111,7 @@ class BithumbRequestData(Feed):
             raise
 
     async def async_request(self, path, params=None, body=None, extra_data=None, timeout=5):
+        """async_request method"""
         method = path.split()[0] if " " in path else "GET"
         request_path = "/" + path.split()[1] if " " in path else path
 
@@ -148,6 +153,7 @@ class BithumbRequestData(Feed):
             raise
 
     def async_callback(self, future):
+        """async_callback method"""
         try:
             result = future.result()
             if result is not None:
@@ -161,14 +167,18 @@ class BithumbRequestData(Feed):
         return RequestData(response, extra_data)
 
     def push_data_to_queue(self, data):
+        """push_data_to_queue method"""
         if self.data_queue is not None:
             self.data_queue.put(data)
 
     def connect(self):
+        """connect method"""
         pass
 
     def disconnect(self):
+        """disconnect method"""
         super().disconnect()
 
     def is_connected(self):
+        """is_connected method"""
         return True
